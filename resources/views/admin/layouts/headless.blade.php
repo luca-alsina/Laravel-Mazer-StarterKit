@@ -8,15 +8,9 @@
 </head>
 
 <body>
-<div id="app">
-    <div id="main">
-        <div class="page-content">
-
-            @yield('content')
-
-        </div>
+    <div id="@yield('container-id')">
+        @yield('content')
     </div>
-</div>
 
 @include('admin.layouts.components.foot')
 
