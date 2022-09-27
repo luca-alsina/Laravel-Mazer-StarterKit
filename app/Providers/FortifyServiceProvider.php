@@ -49,7 +49,15 @@ class FortifyServiceProvider extends ServiceProvider
         /* Setting views of differents routes */
 
         Fortify::loginView(function () {
-            return view('admin.pages.dashboard');
+            return view('pages.auth.login');
+        });
+
+        Fortify::registerView(function () {
+            return view('pages.auth.register');
+        });
+
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('pages.auth.forgot-password');
         });
     }
 }

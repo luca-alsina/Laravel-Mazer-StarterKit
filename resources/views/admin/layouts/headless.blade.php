@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 
-<head>
+    <head>
 
-    @extends('admin.layouts.components.head')
+        @extends('admin.layouts.components.head')
 
-</head>
+        @yield('css')
 
-<body>
-    <div id="@yield('container-id')">
-        @yield('content')
-    </div>
+    </head>
 
-@include('admin.layouts.components.foot')
+    <body>
+        <div id="@yield('container-id')">
+            @yield('content')
+        </div>
 
-</body>
+    @include('admin.layouts.components.foot')
+
+    @yield('js')
+
+    </body>
 
 </html>
