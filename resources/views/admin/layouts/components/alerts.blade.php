@@ -9,7 +9,7 @@
     @endforeach
 @endif
 
-@if($successes->any())
+@if(!empty($successes) && $successes->any())
     @foreach ($successes->all() as $success)
         <div class="position-fixed" style="right: 1.2%; top: 1.5%">
             <div class="alert alert-light-success color-success alert-dismissible">
@@ -20,7 +20,7 @@
     @endforeach
 @endif
 
-@if($warnings->any())
+@if(!empty($warnings) && $warnings->any())
     @foreach ($warnings->all() as $warning)
         <div class="position-fixed" style="right: 1.2%; top: 1.5%">
             <div class="alert alert-light-warning color-warning alert-dismissible">
@@ -31,7 +31,7 @@
     @endforeach
 @endif
 
-@if($infos->any())
+@if(!empty($infos) && $infos->any())
     @foreach ($infos->all() as $info)
         <div class="position-fixed" style="right: 1.2%; top: 1.5%">
             <div class="alert alert-light-info color-info alert-dismissible">
