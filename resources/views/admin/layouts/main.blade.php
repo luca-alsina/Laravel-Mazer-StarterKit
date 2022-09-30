@@ -8,26 +8,29 @@
 </head>
 
 <body>
-<div id="app">
-    <div id="sidebar" class="active">
-        @include('admin.layouts.components.sidebar')
-    </div>
-    <div id="main">
 
-        @include('admin.layouts.components.header')
+@include('admin.layouts.components.alerts')
 
-        <div class="page-heading">
-            <h3>@yield('title', 'Admin Dashboard')</h3>
+    <div id="app">
+        <div id="sidebar" class="active">
+            @include('admin.layouts.components.sidebar')
         </div>
-        <div class="page-content">
+        <div id="main">
 
-            @yield('content')
+            @include('admin.layouts.components.header')
 
+            <div class="page-heading">
+                <h3>@yield('title', 'Admin Dashboard')</h3>
+            </div>
+            <div class="page-content">
+
+                @yield('content')
+
+            </div>
+
+            @include('admin.layouts.components.footer')
         </div>
-
-        @include('admin.layouts.components.footer')
     </div>
-</div>
 
 @include('admin.layouts.components.foot')
 

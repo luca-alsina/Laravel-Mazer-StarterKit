@@ -11,12 +11,7 @@
 
     <body>
 
-        <div class="position-relative right">
-            <div class="alert alert-light-danger color-danger position-relative right">
-                <i class="bi bi-exclamation-circle"></i> This is danger
-                alert.
-            </div>
-        </div>
+        @include('admin.layouts.components.alerts')
 
         <div id="@yield('container-id')">
             @yield('content')
