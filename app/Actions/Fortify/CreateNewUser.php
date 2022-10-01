@@ -20,22 +20,49 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => [
-                'required',
-                'string',
-                'email',
-                'max:255',
-                Rule::unique(User::class),
-            ],
-            'password' => $this->passwordRules(),
-        ])->validate();
+        Validator::make($input, self::validator())->validate();
 
-        return User::create([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'password' => Hash::make($input['password']),
-        ]);
+        $create = [];
+
+        foreach (config('auth.registration.fields') as $field => $value) {
+
+            if ($value['enabled']) {
+
+                if ($value['type'] == 'password') {
+                    $create[$field] = Hash::make($input[$field]);
+                } else {
+                    $create[$field] = $input[$field];
+                }
+
+            }
+
+        }
+
+//        dd(request()->all(), $input, $create, self::validator());
+
+        return User::create($create);
+    }
+
+    private function validator() : array
+    {
+
+        $validator = [];
+
+        /*        if(config('auth.registration.fields.first_name.enabled'))   $validator['first_name'] = config('auth.registration.fields.first_name.validation');
+                if(config('auth.registration.fields.last_name.enabled'))   $validator['last_name'] = config('auth.registration.fields.last_name.validation');
+                if (config('auth.registration.fields.email.enabled'))       $validator['email'] = config('auth.registration.fields.email.validation');
+                $validator['password'] = config('auth.registration.fields.password.validation');*/
+
+        foreach (config('auth.registration.fields') as $field => $value) {
+            if ($value['enabled']) {
+                if ($value['type'] == 'password' && empty($value['validation'])) {
+                    $validator[$field] = $this->passwordRules();
+                } else {
+                    $validator[$field] = $value['validation'];
+                }
+            }
+        }
+
+        return $validator;
     }
 }

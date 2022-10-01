@@ -21,13 +21,13 @@
                 <form action="{{ route('login') }}" method="post">
                     @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="email" name="email" id="email" class="form-control form-control-xl" placeholder="{{ __('auth.fields.email') }}">
+                        <input type="email" name="email" id="email" class="form-control form-control-xl" placeholder="{{ __('auth.fields.email') }}" value="{{ old('email') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" name="password" id="password" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password') }}">
+                        <input type="password" name="password" id="password" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password') }}" value="{{ old('password') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>

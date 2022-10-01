@@ -20,27 +20,46 @@
                     {{ __('auth.page.register.subtitle') }}
                 </p>
 
-                <form action="" method="post">
+                <form action="{{ route('register') }}" method="post">
+                    @csrf
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="email" class="form-control form-control-xl" placeholder="{{ __('auth.fields.email') }}">
+                        <input type="email" name="email" class="form-control form-control-xl" placeholder="{{ __('auth.fields.email') }}" value="{{ old('email') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-envelope"></i>
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="text" class="form-control form-control-xl" placeholder="{{ __('auth.fields.username') }}">
+                        <input type="text" name="username" class="form-control form-control-xl" placeholder="{{ __('auth.fields.username') }}" value="{{ old('username') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
                     </div>
+                    @if(config('auth.registration.fields.first_name.enabled'))
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" name="first_name" class="form-control form-control-xl" placeholder="{{ __('auth.fields.first_name') }}" value="{{ old('first_name') }}">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                        </div>
+                    @endif
+
+                    @if(config('auth.registration.fields.last_name.enabled'))
+                        <div class="form-group position-relative has-icon-left mb-4">
+                            <input type="text" name="last_name" class="form-control form-control-xl" placeholder="{{ __('auth.fields.last_name') }}" value="{{ old('last_name') }}">
+                            <div class="form-control-icon">
+                                <i class="bi bi-person"></i>
+                            </div>
+                        </div>
+                    @endif
+
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password') }}">
+                        <input type="password" name="password" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
                     </div>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="password" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password_confirm') }}">
+                        <input type="password" name="password_confirmation" class="form-control form-control-xl" placeholder="{{ __('auth.fields.password_confirm') }}">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>

@@ -108,4 +108,48 @@ return [
 
     'password_timeout' => 10800,
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Registration specific settings
+    |--------------------------------------------------------------------------
+    |
+    | Here you may define the settings for registration of new users.
+    | By default, the registration is enabled and the user is redirected to the home page after registration.
+    | Also, by default, only the password, username and email information are asked.
+    |
+    */
+
+    'registration' => [
+        'enabled' => true, // Has no effect atm
+        'redirect' => '/', // Has no effect atm
+        'fields' => [
+            'password' => [
+                'enabled' => true, // Can't be disabled
+                'type' => 'password', // Can't be changed
+                'validation' => 'required|string|confirmed|min:8',
+            ],
+            'username' => [
+                'enabled' => true,
+                'type' => 'text',
+                'validation' => 'required|string|max:255|unique:users',
+            ],
+            'email' => [
+                'enabled' => true, // Can't be disabled
+                'type' => 'email',
+                'validation' => 'required|string|email|max:255|unique:users',
+            ],
+            'first_name' => [
+                'enabled' => true,
+                'type' => 'text',
+                'validation' => 'nullable|string|max:255',
+            ],
+            'last_name' => [
+                'enabled' => true,
+                'type' => 'text',
+                'validation' => 'nullable|string|max:255',
+            ],
+        ],
+    ],
+
 ];

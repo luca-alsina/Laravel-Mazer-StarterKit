@@ -9,7 +9,7 @@
 
     </head>
 
-    <body>
+    <body style="margin-bottom: 0;">
 
         @include('admin.layouts.components.alerts')
 
