@@ -24,23 +24,26 @@ class CreateNewUser implements CreatesNewUsers
 
         $create = [];
 
+        $user = new User();
+
+        // Generating the database request from the config file and the input.
         foreach (config('auth.registration.fields') as $field => $value) {
 
-            if ($value['enabled']) {
+            // For unknown reasons, the User::create wasn't taking the username field. I'm forced to use the $user->save() method.
+            if ($value['enabled'] && $input[$field] !== null) {
 
                 if ($value['type'] == 'password') {
-                    $create[$field] = Hash::make($input[$field]);
+                    $user->$field = Hash::make($input[$field]);
                 } else {
-                    $create[$field] = $input[$field];
+                    $user->$field = $input[$field];
                 }
-
             }
 
         }
 
-//        dd(request()->all(), $input, $create, self::validator());
+        $user->save();
 
-        return User::create($create);
+        return $user;
     }
 
     private function validator() : array
@@ -48,11 +51,7 @@ class CreateNewUser implements CreatesNewUsers
 
         $validator = [];
 
-        /*        if(config('auth.registration.fields.first_name.enabled'))   $validator['first_name'] = config('auth.registration.fields.first_name.validation');
-                if(config('auth.registration.fields.last_name.enabled'))   $validator['last_name'] = config('auth.registration.fields.last_name.validation');
-                if (config('auth.registration.fields.email.enabled'))       $validator['email'] = config('auth.registration.fields.email.validation');
-                $validator['password'] = config('auth.registration.fields.password.validation');*/
-
+        // Generating the validator array based on the config file.
         foreach (config('auth.registration.fields') as $field => $value) {
             if ($value['enabled']) {
                 if ($value['type'] == 'password' && empty($value['validation'])) {
