@@ -16,5 +16,12 @@ return [
             ],
         ],
     ],
+    'sidebar'   => [
+        'main'  => [
+            'title'     => 'Main',
+            'website' => 'Main website',
+            'dashboard' => 'Dashboard',
+        ],
+    ],
 
 ];
