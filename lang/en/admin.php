@@ -7,6 +7,15 @@ return [
             'title'     => 'Admin Dashboard',
             'users'     => 'Users',
         ],
+        'user' => [
+            'title'     => 'Users',
+            'add'       => 'Add User',
+            'edit'      => 'Edit User',
+            'delete'    => 'Delete User',
+            'index' => [
+
+            ],
+        ],
     ],
 
     'footer' => [
