@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.pages.dashboard');
-})->name('dashboard');
+Route::get('/', 'App\Http\Controllers\Admin\MainController@index')->name('dashboard');
