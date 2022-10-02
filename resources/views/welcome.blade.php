@@ -26,6 +26,10 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ route('admin.dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                        <form method="post" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="#" onclick="this.closest('form').submit();return false" class="text-sm text-gray-700 dark:text-gray-500 underline" >{{ __('navigation.top-bar.user-card.dropdown.logout') }}</a>
+                        </form>
                     @else
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 

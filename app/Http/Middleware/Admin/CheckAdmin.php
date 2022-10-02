@@ -9,6 +9,14 @@ class CheckAdmin
 {
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+
+        if (!empty(\Auth::user()->is_admin)) {
+            return $next($request);
+        } elseif (!empty(\Auth::user()->id)) {
+            return redirect()->route('index');
+        } else {
+            return redirect()->route('login');
+        }
+
     }
 }

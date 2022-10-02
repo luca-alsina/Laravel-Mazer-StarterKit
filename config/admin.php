@@ -2,7 +2,7 @@
 
 return [
     'prefix' => 'panel',
-    'middleware' => ['web'],
+    'middleware' => ['web', 'checkAdmin'],
     'namespace' => 'App\Http\Controllers\Admin',
     'as' => 'admin.',
 ];
