@@ -8,3 +8,5 @@
 <link rel="shortcut icon" href="{{ asset('admin/images/logo/favicon.png') }}" type="image/png">
 
 <link rel="stylesheet" href="{{ asset('admin/css/shared/iconly.css') }}">
+
+<link rel="stylesheet" href="{{ asset('admin/css/custom.css') }}">

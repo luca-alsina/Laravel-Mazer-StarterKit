@@ -1,0 +1,18 @@
+/* Navbar responsive special CSS */
+
+@media screen and (max-width: 900px) {
+    body.theme-dark .navbar {
+        padding: 0;
+        margin-left: -25px;
+        width: 108%;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    body.theme-dark .navbar {
+        padding: 0;
+        margin-left: -25px;
+        width: 115%;
+    }
+}
