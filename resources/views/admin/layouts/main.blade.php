@@ -5,6 +5,8 @@
 
     @extends('admin.layouts.components.head')
 
+    @stack('styles')
+
 </head>
 
 <body>
@@ -33,6 +35,8 @@
     </div>
 
 @include('admin.layouts.components.foot')
+
+@stack('scripts')
 
 </body>
 

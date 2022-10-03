@@ -5,7 +5,7 @@
 
         @extends('admin.layouts.components.head')
 
-        @yield('css')
+        @stack('styles')
 
     </head>
 
@@ -19,7 +19,7 @@
 
     @include('admin.layouts.components.foot')
 
-    @yield('js')
+    @stack('scripts')
 
     </body>
 
