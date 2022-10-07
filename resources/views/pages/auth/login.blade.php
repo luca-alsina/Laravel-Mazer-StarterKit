@@ -2,11 +2,11 @@
 
 @section('container-id', 'auth')
 
-@section('css')
+@push('styles')
 
     <link rel="stylesheet" href="{{ asset('admin/css/pages/auth.css') }}">
 
-@endsection
+@endpush
 
 @section('content')
     <div class="row h-100">
