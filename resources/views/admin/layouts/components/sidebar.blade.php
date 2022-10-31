@@ -39,6 +39,14 @@
             </li>
 
             <li
+                class="sidebar-item ">
+                <a href="{{ route('admin.users.index') }}" class='sidebar-link'>
+                    <i class="iconly-boldUser"></i>
+                    <span>{{ __('navigation.sidebar.main.users') }}</span>
+                </a>
+            </li>
+
+            <li
                 class="sidebar-item  has-sub">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-stack"></i>
@@ -54,6 +62,7 @@
                 </ul>
             </li>
 
+{{--            <li class="sidebar-title">{{ __('navigation.sidebar.main.title') }}</li>--}}
 
         </ul>
     </div>

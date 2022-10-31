@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\Admin\MainController@index')->name('dashboard');
 
-Route::group([ 'name' => 'users.', 'prefix' => 'users' ], function () {
-
-    Route::get('/', 'App\Http\Controllers\Admin\UserController@index')->name('index');
-/*    Route::get('/create', 'App\Http\Controllers\Admin\UserController@create')->name('create');
-    Route::post('/store', 'App\Http\Controllers\Admin\UserController@store')->name('store');
-    Route::get('/edit/{id}', 'App\Http\Controllers\Admin\UserController@edit')->name('edit');
-    Route::post('/update/{id}', 'App\Http\Controllers\Admin\UserController@update')->name('update');
-    Route::get('/delete/{id}', 'App\Http\Controllers\Admin\UserController@delete')->name('delete');*/
-
-});
+Route::resource('users', UserController::class)->except([ 'show', 'create' ]);

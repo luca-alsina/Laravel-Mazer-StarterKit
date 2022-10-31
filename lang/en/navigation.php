@@ -19,8 +19,9 @@ return [
     'sidebar'   => [
         'main'  => [
             'title'     => 'Main',
-            'website' => 'Main website',
+            'website'   => 'Main website',
             'dashboard' => 'Dashboard',
+            'users'     => 'Users',
         ],
     ],
 

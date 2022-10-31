@@ -34,6 +34,8 @@
         </div>
     </div>
 
+@yield('modals')
+
 @include('admin.layouts.components.foot')
 
 @stack('scripts')
