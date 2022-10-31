@@ -23,6 +23,11 @@ return [
             'dashboard' => 'Dashboard',
             'users'     => 'Users',
         ],
+        'catalog'  => [
+            'title'     => 'Catalog',
+            'products'  => 'Products',
+            'categories' => 'Categories',
+        ],
     ],
 
 ];

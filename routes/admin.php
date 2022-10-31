@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\Admin\MainController@index')->name('dashboard');
 
 Route::resource('users', UserController::class)->except([ 'show', 'create' ]);
+Route::resource('categories', CategoriesController::class)->except([ 'show', 'create' ]);
