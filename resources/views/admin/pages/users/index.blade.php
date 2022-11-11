@@ -12,7 +12,8 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-user-create">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modal-user-create">
                     {{ __('admin.pages.user.create') }}
                 </button>
             </div>
@@ -59,11 +60,11 @@
 
 @section('modals')
 
-    @include('admin.modals.user.create')
+    @include('admin.modals.users.create')
 
     @foreach($users as $user)
-        @include('admin.modals.user.show', compact('user'))
-        @include('admin.modals.user.delete', compact('user'))
+        @include('admin.modals.users.show', compact('user'))
+        @include('admin.modals.users.delete', compact('user'))
     @endforeach
 @endsection
 

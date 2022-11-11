@@ -11,7 +11,7 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        return view('admin.pages.user.index', compact('users'));
+        return view('admin.pages.users.index', compact('users'));
     }
 
     public function store()
@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('admin.pages.user.edit', compact('user'));
+        return view('admin.pages.users.edit', compact('user'));
     }
 
     public function update(User $user)
