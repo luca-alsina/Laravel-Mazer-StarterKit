@@ -13,7 +13,13 @@ return [
             'edit'      => 'Edit User',
             'delete'    => 'Delete User',
             'index' => [
-
+                'id'        => 'ID',
+                'name'      => 'Name',
+                'email'     => 'Email',
+                'role'      => 'Role',
+                'created'   => 'Created',
+                'updated'   => 'Updated',
+                'actions'   => 'Actions',
             ],
         ],
     ],
