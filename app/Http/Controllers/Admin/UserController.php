@@ -16,9 +16,6 @@ class UserController extends Controller
 
     public function store()
     {
-
-//        dd(request());
-
         $data = request()->validate([
             'username' => config('auth.registration.fields.username.validation'),
             'email' => config('auth.registration.fields.email.validation'),

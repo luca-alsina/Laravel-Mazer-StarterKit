@@ -12,7 +12,6 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                {{ __('admin.pages.user.title') }}
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-user-create">
                     {{ __('admin.pages.user.create') }}
                 </button>
