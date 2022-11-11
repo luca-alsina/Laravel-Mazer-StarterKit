@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
