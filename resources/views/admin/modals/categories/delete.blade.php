@@ -1,16 +1,16 @@
-<div class="modal fade" id="modal-user-delete-{{ $user->id }}" tabindex="-1" role="dialog"
+<div class="modal fade" id="modal-user-delete-{{ $category->id }}" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Delete {{ $user->first_name }} {{ $user->last_name }} ({{ $user->username }})</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Delete {{ $category->first_name }} {{ $category->last_name }} ({{ $category->username }})</h5>
                 <button type="button" class="close" data-bs-dismiss="modal"
                         aria-label="Close">
                     <i data-feather="x"></i>
                 </button>
             </div>
             <div class="modal-body">
-                Are you sure you want to delete the user {{ $user->first_name }} {{ $user->last_name }} ?
+                Are you sure you want to delete the user {{ $category->first_name }} {{ $category->last_name }} ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light-secondary"
@@ -18,7 +18,7 @@
                     <i class="bx bx-x d-block d-sm-none"></i>
                     <span class="d-none d-sm-block">Close</span>
                 </button>
-                <form method="post" action="{{ route('admin.users.destroy', [ $user->id ]) }}">
+                <form method="post" action="{{ route('admin.users.destroy', [ $category->id ]) }}">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger">
