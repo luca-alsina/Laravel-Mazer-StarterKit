@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\Admin\MainController@index')->name('dashboard');
 
-Route::resource('users', UserController::class)->except([ 'show', 'create' ]);
-Route::resource('categories', CategoriesController::class)->except([ 'show', 'create' ]);
+Route::resource('users', UserController::class)->except([ 'show', 'create', 'edit' ]);
+Route::resource('categories', CategoriesController::class)->except([ 'show', 'create', 'edit' ]);

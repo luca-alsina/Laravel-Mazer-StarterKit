@@ -25,6 +25,7 @@ return [
         'categories' => [
             'title'     => 'Categories',
             'create'    => 'Create Category',
+            'update'    => 'Update Category',
             'edit'      => 'Edit Category',
             'delete'    => 'Delete Category',
             'alerts'    => [

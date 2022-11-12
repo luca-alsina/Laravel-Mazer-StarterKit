@@ -43,6 +43,10 @@
                                         data-bs-target="#modal-category-delete-{{ $category->id }}">
                                     <i data-feather="trash"></i>
                                 </button>
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#modal-category-update-{{ $category->id }}">
+                                    <i data-feather="edit"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
@@ -59,6 +63,7 @@
 
     @foreach($categories as $category)
         @include('admin.modals.categories.show', compact('category'))
+        @include('admin.modals.categories.update', compact('category'))
         @include('admin.modals.categories.delete', compact('category'))
     @endforeach
 

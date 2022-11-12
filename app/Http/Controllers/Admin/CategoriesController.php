@@ -33,12 +33,19 @@ class CategoriesController extends Controller
         }
     }
 
-    public function edit(Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-    }
+        $data = $request->validated();
 
-    public function update(Request $request, Category $category)
-    {
+        try {
+            if (CategoryRepository::updateCategory($category->id, $data)) {
+                return redirect()->route('admin.categories.index')->with('success', __('admin.pages.categories.alerts.updated'));
+            } else {
+                return redirect()->route('admin.categories.index')->withErrors(__('admin.pages.categories.alerts.error'));
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(__('global.alerts.errored'));
+        }
     }
 
     public function destroy(Category $category)
