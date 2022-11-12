@@ -17,10 +17,10 @@
                         <label for="title">{{ __('admin.pages.categories.index.name') }}</label>
                         <input type="text" class="form-control" name="title" id="title" placeholder="{{ __('admin.pages.categories.index.name') }}">
                     </div>
-                    <div class="form-group">
+{{--                    <div class="form-group">
                         <label for="slug">{{ __('admin.pages.categories.index.slug') }}</label>
                         <input type="text" class="form-control" name="slug" id="slug" placeholder="{{ __('admin.pages.categories.index.slug') }}">
-                    </div>
+                    </div>--}}
                     <div class="form-group">
                         <label for="parent_id">{{ __('global.none') }}</label>
                         <select class="form-control form-select" name="parent_id" id="parent_id">
