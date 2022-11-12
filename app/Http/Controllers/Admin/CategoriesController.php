@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -14,8 +17,21 @@ class CategoriesController extends Controller
         return view('admin.pages.categories.index', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
+        $data = $request->validated();
+
+        dd(CategoryRepository::createCategory($data));
+
+        try {
+            if (CategoryRepository::createCategory($data)) {
+                return redirect()->route('admin.categories.index')->with('success', __('admin.pages.categories.alerts.created'));
+            } else {
+                return redirect()->route('admin.categories.index')->with('error', __('admin.pages.categories.alerts.error'));
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', __('global.alerts.errored'));
+        }
     }
 
     public function edit(Category $category)
