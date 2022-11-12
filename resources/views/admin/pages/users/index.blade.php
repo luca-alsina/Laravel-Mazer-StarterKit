@@ -18,7 +18,7 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-striped dataTable-table" id="users">
+                <table class="table table-striped" id="users">
                     <thead>
                     <tr>
                         <th>ID</th>
@@ -73,7 +73,7 @@
     <script>
         const dataTable = new simpleDatatables.DataTable("#users", {
             searchable: true,
-            fixedHeight: true
+            fixedHeight: false,
         });
     </script>
 @endpush

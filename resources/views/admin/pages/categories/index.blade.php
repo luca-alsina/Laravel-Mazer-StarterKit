@@ -17,20 +17,22 @@
                 </button>
             </div>
             <div class="card-body">
-                <table class="table table-striped dataTable-table" id="categories">
+                <table class="table table-striped" id="categories">
                     <thead>
                     <tr>
                         <th>{{ __('admin.pages.categories.index.id') }}</th>
                         <th>{{ __('admin.pages.categories.index.title') }}</th>
+                        <th>{{ __('admin.pages.categories.index.parent') }}</th>
                         <th>{{ __('admin.pages.categories.index.slug') }}</th>
                         <th>{{ __('admin.pages.categories.index.actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($categories as $category)
-                        <tr>
+                        <tr id="{{ $category->slug }}">
                             <td>{{ $category->id }}</td>
                             <td>{{ $category->title }}</td>
+                            <td>@if(!empty($category->parent)) <a href="#{{ $category->parent->slug }}">{{ $category->parent->title }} ({{ $category->parent->id }})</a>@else{{ __('global.none') }}@endif</td>
                             <td>{{ $category->slug }}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
@@ -69,7 +71,7 @@
     <script>
         const dataTable = new simpleDatatables.DataTable("#categories", {
             searchable: true,
-            fixedHeight: true
+            fixedHeight: false,
         });
     </script>
 @endpush
