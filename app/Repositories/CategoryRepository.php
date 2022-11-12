@@ -3,23 +3,31 @@
 namespace App\Repositories;
 
 use App\Models\Category;
+use \Illuminate\Database\Eloquent\Collection;
 
 class CategoryRepository
 {
 
-    public static function getCategories(): \Illuminate\Database\Eloquent\Collection
+    public static function getCategories(): Collection
     {
         return Category::all();
     }
 
-    public static function getCategory($id) : mixed
+    public static function getCategory($id) : Category
     {
-        return Category::find($id);
+        return Category::find($id)->first();
     }
 
     public static function createCategory($data): Category
     {
-        return Category::create($data);
+
+        $category = Category::create($data);
+
+        $category->parent_id = $data['parent_id'];
+
+        $category->save();
+
+        return $category;
     }
 
     public static function updateCategory($id, $data): bool
