@@ -22,6 +22,28 @@ return [
                 'actions'   => 'Actions',
             ],
         ],
+        'categories' => [
+            'title'     => 'Categories',
+            'create'    => 'Create Category',
+            'edit'      => 'Edit Category',
+            'delete'    => 'Delete Category',
+            'alerts'    => [
+                'created' => 'Category created successfully',
+                'updated' => 'Category updated successfully',
+                'deleted' => 'Category deleted successfully',
+            ],
+            'index' => [
+                'id'            => 'ID',
+                'title'         => 'Categories',
+                'name'          => 'Name',
+                'slug'          => 'Slug',
+                'parent'        => 'Parent',
+                'description'   => 'Description',
+                'actions'       => 'Actions',
+                'edit'          => 'Edit',
+                'delete'        => 'Delete',
+            ],
+        ],
     ],
 
     'footer' => [
