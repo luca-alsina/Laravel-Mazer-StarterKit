@@ -1,9 +1,9 @@
-<div class="modal fade" id="modal-user-{{ $category->id }}" tabindex="-1" role="dialog"
+<div class="modal fade" id="modal-category-{{ $category->id }}" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">{{ $category->first_name }} {{ $category->last_name }} ({{ $category->username }})</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">{{ $category->title }} ({{ $category->id }})</h5>
                 <button type="button" class="close" data-bs-dismiss="modal"
                         aria-label="Close">
                     <i data-feather="x"></i>
@@ -18,24 +18,16 @@
                             <td>{{ $category->id }}</td>
                         </tr>
                         <tr>
-                            <td>Username</td>
-                            <td>{{ $category->username }}</td>
+                            <td>{{ __('admin.pages.categories.index.parent') }}</td>
+                            <td>@if(!empty($category->parent)) {{ $category->parent->title }} ({{ $category->parent->id }})@else {{ __('global.none') }}@endif</td>
                         </tr>
                         <tr>
-                            <td>Email</td>
-                            <td>{{ $category->email }}</td>
+                            <td>{{ __('admin.pages.categories.index.slug') }}</td>
+                            <td>{{ $category->slug }}</td>
                         </tr>
                         <tr>
-                            <td>Is admin</td>
-                            <td>{{ $category->is_admin ? 'Yes' : 'No' }}</td>
-                        </tr>
-                        <tr>
-                            <td>First name</td>
-                            <td>{{ $category->first_name }}</td>
-                        </tr>
-                        <tr>
-                            <td>Last name</td>
-                            <td>{{ $category->last_name }}</td>
+                            <td>{{ __('admin.pages.categories.index.description') }}</td>
+                            <td>{{ $category->description }}</td>
                         </tr>
                         <tr>
                             <td>Created at</td>
