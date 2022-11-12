@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use App\Repositories\CategoryRepository;
+use DebugBar\DebugBar;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -25,10 +26,10 @@ class CategoriesController extends Controller
             if (CategoryRepository::createCategory($data)) {
                 return redirect()->route('admin.categories.index')->with('success', __('admin.pages.categories.alerts.created'));
             } else {
-                return redirect()->route('admin.categories.index')->with('error', __('admin.pages.categories.alerts.error'));
+                return redirect()->route('admin.categories.index')->withErrors(__('admin.pages.categories.alerts.error'));
             }
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', __('global.alerts.errored'));
+            return redirect()->back()->withErrors(__('global.alerts.errored'));
         }
     }
 
@@ -42,5 +43,14 @@ class CategoriesController extends Controller
 
     public function destroy(Category $category)
     {
+        try {
+            if (CategoryRepository::deleteCategory($category)) {
+                return redirect()->route('admin.categories.index')->with('success', __('admin.pages.categories.alerts.deleted'));
+            } else {
+                return redirect()->route('admin.categories.index')->withErrors(__('admin.pages.categories.alerts.error'));
+            }
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(__('global.alerts.errored'));
+        }
     }
 }
