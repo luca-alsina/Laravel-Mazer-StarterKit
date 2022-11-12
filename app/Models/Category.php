@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Setters\CategorySetter;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use CategorySetter;
+
     protected $fillable = [
         'title',
         'slug',
