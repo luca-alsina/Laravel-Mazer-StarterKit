@@ -21,8 +21,6 @@ class CategoriesController extends Controller
     {
         $data = $request->validated();
 
-        dd(CategoryRepository::createCategory($data));
-
         try {
             if (CategoryRepository::createCategory($data)) {
                 return redirect()->route('admin.categories.index')->with('success', __('admin.pages.categories.alerts.created'));
