@@ -1,6 +1,6 @@
-<div class="modal fade text-left" id="modal-category-create" tabindex="-1" role="dialog"
+<div class="modal fade text-left w-100" id="modal-category-create" tabindex="-1" role="dialog"
      aria-labelledby="modal-user-create" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
          role="document">
         <div class="modal-content">
             <div class="modal-header">
