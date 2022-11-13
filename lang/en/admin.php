@@ -3,11 +3,11 @@
 return [
 
     'pages' => [
-        'dashboard' => [
+        'dashboard'   => [
             'title'     => 'Admin Dashboard',
             'users'     => 'Users',
         ],
-        'user' => [
+        'user'       => [
             'title'     => 'Users',
             'create'    => 'Create User',
             'edit'      => 'Edit User',
@@ -39,6 +39,28 @@ return [
                 'name'          => 'Name',
                 'slug'          => 'Slug',
                 'parent'        => 'Parent',
+                'description'   => 'Description',
+                'actions'       => 'Actions',
+                'edit'          => 'Edit',
+                'delete'        => 'Delete',
+            ],
+        ],
+        'products'   => [
+            'title'     => 'Products',
+            'create'    => 'Create Product',
+            'update'    => 'Update Product',
+            'edit'      => 'Edit Product',
+            'delete'    => 'Delete Product',
+            'alerts'    => [
+                'created' => 'Product created successfully',
+                'updated' => 'Product updated successfully',
+                'deleted' => 'Product deleted successfully',
+            ],
+            'index' => [
+                'id'            => 'ID',
+                'title'         => 'Products',
+                'name'          => 'Name',
+                'slug'          => 'Slug',
                 'description'   => 'Description',
                 'actions'       => 'Actions',
                 'edit'          => 'Edit',
