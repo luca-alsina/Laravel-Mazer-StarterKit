@@ -24,6 +24,7 @@ return [
         ],
         'categories' => [
             'title'     => 'Categories',
+            'list'      => 'Categories List',
             'create'    => 'Create Category',
             'update'    => 'Update Category',
             'edit'      => 'Edit Category',

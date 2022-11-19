@@ -13,9 +13,10 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        $categories = Category::all();
+        $categories = CategoryRepository::getCategories();
+        $hierarchy  = CategoryRepository::getCategoriesOrderedByHierarchy();
 
-        return view('admin.pages.categories.index', compact('categories'));
+        return view('admin.pages.categories.index', compact('categories', 'hierarchy'));
     }
 
     public function store(CategoryRequest $request)
